@@ -7,16 +7,16 @@
 
 	$config = array(
 		// REQUIRED VALUES ------------------------------------
-		'twitter_screenname' => '', // Your Twitter screen name
-		'timezone'           => '', // Choose one of these: http://php.net/manual/en/timezones.php
+		'twitter_screenname' => getenv('TWITTER_SCREENNAME'), // Your Twitter screen name
+		'timezone'           => getenv('PHP_TIMEZONE'), // Choose one of these: http://php.net/manual/en/timezones.php
 		'path'               => '', // Where's your twitter installation on your domain? No end slash, please.
 		// Database values
 		'db'                 => array(
-			'hostname'       => '', // The hostname of your database server. Usually 'localhost'
-			'username'       => '', // The username to log in to your database
-			'password'       => '', // The password to log in to your database
-			'database'       => '', // The database name
-			'table_prefix'   => ''  // The prefix to table names in the database
+			'hostname'       => getenv('MYSQL_HOST'), // The hostname of your database server. Usually 'localhost'
+			'username'       => getenv('MYSQL_USER'), // The username to log in to your database
+			'password'       => getenv('MYSQL_PASS'), // The password to log in to your database
+			'database'       => getenv('MYSQL_DB'), // The database name
+			'table_prefix'   => 'tn_'  // The prefix to table names in the database
 		),
 		
 		// OPTIONAL -------------------------------------------
@@ -25,7 +25,7 @@
 		// UNLESS YOU HAVE SSL, IT WILL BE SENT IN CLEAR TEXT, SO MAYBE NOT YOUR TWITTER (or anything else) PASSWORD!
 		
 		// If you want Twitter @Anywhere hovercards on your archive, put your @Anywhere API key here
-		'anywhere_apikey'    => '',
+		'anywhere_apikey'    => getenv('TWITTER_ANYWHERE_API'),
 		
 		'follow_me_button'   => true, // Display 'follow me' button?
 		'smartypants'        => true, // Use SmartyPants to perfect punctuation inside tweets?
